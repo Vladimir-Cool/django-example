@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="base.css">
+  <title>
+    {% block title %}
+      Base Title
+    {% endblock title %}
+  </title>
+</head>
+<body>
+
+{% include 'navbar.html' %}
+
+<div class="main">
+  <p> БАЗА </p>
+{% block body %}
+{% endblock body %}
+</div>
+
+</body>
+
+<footer>
+  &copy Django Example
+</footer>
+
+
+</html>
