@@ -7,7 +7,7 @@ load_dotenv(dotenv_path="config/.env")
 
 
 class SettingDjango(BaseSettings):
-    """Класс настроек для ДБ"""
+    """Класс настроек для Django"""
     SECRET_KEY: str = os.getenv('SECRET_KEY')
 
 
