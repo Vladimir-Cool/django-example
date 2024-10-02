@@ -2,7 +2,9 @@
 {% block nav %}
 <nav>
   <ul>
-    <li><a href="#">Home</a></li>
+    <!-- ex_crm:index - Ссылка с использованием префикса   -->
+    <li><a href="{% url 'home' %}">Home</a></li>
+    <li><a href="{% url 'ex_crm:home' %}">Crm_home</a></li>
     <li><a href="#">About</a></li>
   </ul>
 </nav>

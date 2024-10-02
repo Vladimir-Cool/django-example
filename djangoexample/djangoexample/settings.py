@@ -58,6 +58,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': ['djangoexample/templates'],
+        # Опция включает работу с шаблонами в директориях приложений
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,7 +109,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-ru'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Irkutsk'
 
 USE_I18N = True
 

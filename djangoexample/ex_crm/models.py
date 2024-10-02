@@ -14,4 +14,6 @@ class Order(models.Model):
         # Имя модели для админки
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
+        # Сартировка по умолчанию, для QuerySet '-id' - обратная сортировка
+        ordering = ['id']
 
