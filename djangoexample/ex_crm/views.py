@@ -7,12 +7,25 @@ from django.views.generic import TemplateView, ListView, DetailView, CreateView
 from .models import Order
 from .forms import OrderForm
 from ex_cms.models import CmsSlider
-
+from price.models import PriceCard, PriceTable
 
 def index_page(request: HttpRequest) -> HttpResponse:
     objects_list = Order.objects.all()
     slider_list = CmsSlider.objects.all()
-    return render(request, 'base.html', {'objects_list': objects_list, 'slider_list': slider_list})
+    price_table = PriceTable.objects.all()
+    pc1, pc2, pc3 = PriceCard.objects.all()[:3]
+
+    contex = {
+        'objects_list': objects_list,
+        'slider_list': slider_list,
+        'price_table': price_table,
+        'price_card': {'pc1': pc1,
+                       'pc2': pc2,
+                       'pc3': pc3},
+
+    }
+
+    return render(request, 'base.html', context=contex)
 
 
 class OrderTestListIndexView(TemplateView):
