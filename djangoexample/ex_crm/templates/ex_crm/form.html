@@ -1,17 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-<form action="{% url 'form_handler' %}" method="POST">
-  {% csrf_token %}
-  <label>Имя</label>
-  <input name="name">
-  <label>Телефон</label>
-  <input name="phone">
-  <button type="submit">Отправка</button>
+{% extends 'base.html' %}
+
+{% block title %}
+  Create Order
+{% endblock title %}
+
+{% block body %}
+
+<h2>Создание нового заказа</h2>
+<form method="post">{% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Send message">
 </form>
-</body>
-</html>
+
+{% endblock body %}

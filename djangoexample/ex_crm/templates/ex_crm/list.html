@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block title %}
-  CRM Home
+  List order
 {% endblock title %}
 
 {% block body %}
@@ -12,5 +12,5 @@
 {% include 'ex_crm/components/table.html' %}
 
 <a href="{% url 'ex_crm:home' %}">Назад</a>
-
+<a href="{% url 'ex_crm:create' %}">Добавить запись</a>
 {% endblock body %}
