@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
 
-from .models import Order
+from .models import Order, StatusCrm
 from .forms import OrderForm
 from ex_cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
@@ -32,7 +32,8 @@ def index_page(request: HttpRequest) -> HttpResponse:
 def thanks_page(request):
     print(request.POST)
     new_order = Order(order_name=request.POST['order_name'],
-                      order_phone=request.POST['order_phone'])
+                      order_phone=request.POST['order_phone'],
+                      order_status=StatusCrm.objects.get(status_name='Новый'))
     new_order.save()
     return render(request, 'thanks.html', context={'new_order': new_order})
 
