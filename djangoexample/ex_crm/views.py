@@ -14,6 +14,7 @@ def index_page(request: HttpRequest) -> HttpResponse:
     slider_list = CmsSlider.objects.all()
     price_table = PriceTable.objects.all()
     pc1, pc2, pc3 = PriceCard.objects.all()[:3]
+    form = OrderForm()
 
     contex = {
         'objects_list': objects_list,
@@ -22,10 +23,19 @@ def index_page(request: HttpRequest) -> HttpResponse:
         'price_card': {'pc1': pc1,
                        'pc2': pc2,
                        'pc3': pc3},
-
+        'form': form,
     }
 
-    return render(request, 'base.html', context=contex)
+    return render(request, 'index.html', context=contex)
+
+
+def thanks_page(request):
+    print(request.POST)
+    new_order = Order(order_name=request.POST['order_name'],
+                      order_phone=request.POST['order_phone'])
+    new_order.save()
+    return render(request, 'thanks.html', context={'new_order': new_order})
+
 
 
 class OrderTestListIndexView(TemplateView):
