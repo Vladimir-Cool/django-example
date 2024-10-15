@@ -1,12 +1,10 @@
 from django.db import models
 
 class CmsSlider(models.Model):
-    """ """
+    """ Модель для HTML объекта карусели"""
     class Meta:
-        # Имя модели для админки
         verbose_name = 'Слайд'
         verbose_name_plural = 'Слайды'
-        # Сартировка по умолчанию, для QuerySet '-id' - обратная сортировка
         ordering = ['id']
 
     # upload_to - указываем директорию внутри 'media'

@@ -1,5 +1,4 @@
 from django.http import HttpRequest, HttpResponse
-from django.urls import reverse
 from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, DetailView, CreateView
 
@@ -43,10 +42,11 @@ def thanks_page(request):
 
 
 class OrderTestListIndexView(TemplateView):
+    """ Предстовление возвращает список всех заказов"""
     template_name = 'ex_crm/index.html'
 
     def get_context_data(self, **kwargs):
-        """ Функция возвращает контекст для рендеринга Http ответа"""
+        """ Функция возвращает контекст для рендеринга HTTP ответа"""
         context = super().get_context_data(**kwargs)
         context['objects_list'] = Order.objects.all()
         return context
@@ -70,10 +70,12 @@ class OrderTestListView(ListView):
 #     queryset = Order.objects.all()[:2]
 #     context_object_name = 'objects_list'
 #
+#
 # class OrderListView(ListView):
 #     template_name = 'ex_crm/list.html'
 #     model = Order
 #     context_object_name = 'objects_list'
+#
 #
 # class OrderDetailView(DetailView):
 #     template_name = 'ex_crm/detail.html'

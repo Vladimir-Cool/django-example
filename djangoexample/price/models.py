@@ -1,6 +1,7 @@
 from django.db import models
 
 class PriceCard(models.Model):
+    """ Модель для цен на карточках"""
     class Meta:
         verbose_name = 'Цена'
         verbose_name_plural = 'Цены'
@@ -15,6 +16,7 @@ class PriceCard(models.Model):
 
 
 class PriceTable(models.Model):
+    """ Модель для списка услуг"""
     class Meta:
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'

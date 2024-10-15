@@ -2,12 +2,10 @@ from django.db import models
 from django.urls import reverse
 
 class Order(models.Model):
-    """ Класс заказов"""
+    """ Класс заказа"""
     class Meta:
-        # Имя модели для админки
         verbose_name = 'Заказ'
         verbose_name_plural = 'Заказы'
-        # Сартировка по умолчанию, для QuerySet '-id' - обратная сортировка
         ordering = ['id']
 
     order_dt = models.DateTimeField(auto_now=True)
@@ -24,6 +22,7 @@ class Order(models.Model):
 
 
 class StatusCrm(models.Model):
+    """ Класс статуса для заказа"""
     class Meta:
         verbose_name = 'Статус'
         verbose_name_plural = 'Статусы'
@@ -36,6 +35,7 @@ class StatusCrm(models.Model):
 
 
 class CommentCrm(models.Model):
+    """ Класс комментария для заказа"""
     class Meta:
         verbose_name = 'Комментарий'
         verbose_name_plural = 'Комментарии'

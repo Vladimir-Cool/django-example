@@ -4,10 +4,10 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """ Класс Формы для создания заказа"""
     class Meta:
         model = Order
         fields = ('order_name', 'order_phone',)
-
         widgets = {
             'order_name': forms.TextInput(attrs={'class': 'form-control'}),
             'order_phone': forms.TextInput(attrs={'class': 'form-control'})
