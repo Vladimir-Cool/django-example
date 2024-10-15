@@ -11,4 +11,12 @@ class SettingDjango(BaseSettings):
     SECRET_KEY: str = os.getenv('SECRET_KEY')
 
 
+class SettingsTelegram(BaseSettings):
+    """Класс настроек для телеграм бота"""
+    TELEGRAM_BOT_TOKEN_1: str = os.getenv('TELEGRAM_BOT_TOKEN_1')
+    CHAT_ID: str = os.getenv('CHAT_ID')
+
+
 settings_django = SettingDjango()
+settings_telegram = SettingsTelegram()
+

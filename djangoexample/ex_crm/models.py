@@ -2,7 +2,7 @@ from django.db import models
 from django.urls import reverse
 
 class Order(models.Model):
-    """ Класс модели для работы ORM"""
+    """ Класс заказов"""
     class Meta:
         # Имя модели для админки
         verbose_name = 'Заказ'

@@ -8,8 +8,10 @@ from .models import Order, StatusCrm
 from .forms import OrderForm
 from ex_cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
+from telebot.service.message import send_message
 
 def index_page(request: HttpRequest) -> HttpResponse:
+    """ Возвращает первую демонстрационную страницу"""
     objects_list = Order.objects.all()
     slider_list = CmsSlider.objects.all()
     price_table = PriceTable.objects.all()
@@ -25,16 +27,17 @@ def index_page(request: HttpRequest) -> HttpResponse:
                        'pc3': pc3},
         'form': form,
     }
-
     return render(request, 'index.html', context=contex)
 
 
 def thanks_page(request):
+    """ Возвращает страницу с благодарностью за заявку"""
     print(request.POST)
     new_order = Order(order_name=request.POST['order_name'],
                       order_phone=request.POST['order_phone'],
                       order_status=StatusCrm.objects.get(status_name='Новый'))
     new_order.save()
+    send_message(request.POST)
     return render(request, 'thanks.html', context={'new_order': new_order})
 
 
