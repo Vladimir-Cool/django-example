@@ -27,8 +27,17 @@ SECRET_KEY = 'django-insecure-+_t-54$h%i75sh@y@95592ab9ht^ow8wa+z06)^fv$g_000000
 ---
 * Запуск проекта из директории /djangoexample
 ```shell
+python.exe manage.py makemigrations
+
+python.exe manage.py migrate
+
+python.exe manage.py createsuperuser
+
 python.exe manage.py runserver
 ```
+---
+БД - дефолтная sqlite
+
 ---
 Список приложений
 * `ex_cms` - Приложение для карусели на HTTP странице.
